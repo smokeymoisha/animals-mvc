@@ -1,0 +1,13 @@
+﻿@model Animals_MVC.Models.GetAllCatsViewModel
+
+@{
+    ViewBag.Title = "Cats";
+}
+
+@section scripts{
+    <script src="@Url.Content("~/Scripts/darkmode.js")"></script>
+}
+
+<h2>Cats</h2>
+
+@Html.Partial("CatsPartial")

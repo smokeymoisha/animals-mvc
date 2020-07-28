@@ -1,0 +1,19 @@
+﻿@model Animals_MVC.Models.GetAllCatsViewModel
+
+@{
+    ViewBag.Title = "CatsPartial";
+}
+
+<table class="table">
+    <tr>
+        <th>Name</th>
+        <th>Age</th>
+    </tr>
+    @foreach (var cat in Model.Cats)
+    {
+        <tr>
+            <td>@cat.Name</td>
+            <td>@cat.Age</td>
+        </tr>
+    }
+</table>

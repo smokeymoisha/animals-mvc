@@ -1,0 +1,25 @@
+﻿@model Animals_MVC.Models.GetAllHomesViewModel
+
+@{
+    ViewBag.Title = "HomesPartial";
+}
+
+<table class="table">
+    <tr>
+        <th>Name</th>
+    </tr>
+    @foreach (var home in Model.Homes)
+    {
+        <tr>
+            <td>@home.Name</td>
+            @*<td>
+                <ul>
+                    @foreach (var cat in home.Cats)
+                    {
+                        <li>@cat.Name</li>
+                    }
+                </ul>
+            </td>*@
+        </tr>
+    }
+</table>
