@@ -1,4 +1,4 @@
-﻿@model Animals_MVC.Models.GetAllHomesViewModel
+﻿@model Animals_MVC.Models.GetAllViewModel
 
 @{
     ViewBag.Title = "Homes";
@@ -6,4 +6,4 @@
 
 <h2>Homes</h2>
 
-@Html.Partial("HomesPartial")
+@Html.Partial("GetAllPartial", Model)

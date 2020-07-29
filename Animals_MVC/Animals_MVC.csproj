@@ -149,6 +149,7 @@
     <Compile Include="Models\CatViewModel.cs" />
     <Compile Include="Models\GetAllCatsViewModel.cs" />
     <Compile Include="Models\GetAllHomesViewModel.cs" />
+    <Compile Include="Models\GetAllViewModel.cs" />
     <Compile Include="Models\HomeViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -190,8 +191,7 @@
     <Content Include="Views\Animals\Cats.cshtml" />
     <Content Include="Views\Animals\Homes.cshtml" />
     <Content Include="Views\SPA\Index.cshtml" />
-    <Content Include="Views\Shared\CatsPartial.cshtml" />
-    <Content Include="Views\Shared\HomesPartial.cshtml" />
+    <Content Include="Views\Shared\GetAllPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

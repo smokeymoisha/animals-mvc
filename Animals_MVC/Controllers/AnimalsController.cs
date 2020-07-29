@@ -34,7 +34,7 @@ namespace Animals_MVC.Controllers
         {
             var catList = _animalsManager.GetAllCats();
 
-            var result = new GetAllCatsViewModel();
+            var result = new GetAllViewModel();
             result.Cats = _mapper.Map<IList<CatViewModel>>(catList);
 
             return View(result);
@@ -44,7 +44,7 @@ namespace Animals_MVC.Controllers
         {
             var homeList = _animalsManager.GetAllHomes();
 
-            var result = new GetAllHomesViewModel();
+            var result = new GetAllViewModel();
             result.Homes = _mapper.Map<IList<HomeViewModel>>(homeList);
 
             return View(result);

@@ -1,0 +1,37 @@
+﻿@model Animals_MVC.Models.GetAllViewModel
+
+@{
+    ViewBag.Title = "GetAllPartial";
+}
+
+@if (Model.Cats.Count > 0)
+{
+    <table class="table">
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+        </tr>
+        @foreach (var cat in Model.Cats)
+        {
+            <tr>
+                <td>@cat.Name</td>
+                <td>@cat.Age</td>
+            </tr>
+        }
+    </table>
+}
+
+@if (Model.Homes.Count > 0)
+{
+    <table class="table">
+        <tr>
+            <th>Name</th>
+        </tr>
+        @foreach (var home in Model.Homes)
+        {
+            <tr>
+                <td>@home.Name</td>
+            </tr>
+        }
+    </table>
+}
