@@ -5,7 +5,7 @@ using System.Web;
 
 namespace Animals_MVC.Models
 {
-    public class HomeViewModel
+    public class HomeViewModel : IGetAll
     {
         public HomeViewModel()
         {

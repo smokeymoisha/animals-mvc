@@ -149,8 +149,8 @@
     <Compile Include="Models\CatViewModel.cs" />
     <Compile Include="Models\GetAllCatsViewModel.cs" />
     <Compile Include="Models\GetAllHomesViewModel.cs" />
-    <Compile Include="Models\GetAllViewModel.cs" />
     <Compile Include="Models\HomeViewModel.cs" />
+    <Compile Include="Models\IGetAll.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

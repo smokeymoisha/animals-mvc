@@ -5,7 +5,7 @@ using System.Web;
 
 namespace Animals_MVC.Models
 {
-    public class CatViewModel
+    public class CatViewModel : IGetAll
     {
         public int Id { get; set; }
         public string Name { get; set; }
