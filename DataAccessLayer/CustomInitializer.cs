@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer
 {
-    public class CustomInitializer : DropCreateDatabaseAlways<AnimalsContext>
+    public class CustomInitializer : CreateDatabaseIfNotExists<AnimalsContext>
     {
         protected override void Seed(AnimalsContext context)
         {

@@ -1,0 +1,16 @@
+﻿@model Animals_MVC.Models.RegisterPostModel
+
+@{ 
+    ViewBag.Title = "Register";
+}
+
+    <div>
+        @using (Html.BeginForm("Register", "Account", FormMethod.Post))
+        {
+            <span>Username: </span>@Html.TextBoxFor(mod => mod.Username)<br />
+            <span>Email: </span>@Html.TextBoxFor(mod => mod.Email)<br />
+            <span>Password: </span>@Html.PasswordFor(mod => mod.Password)<br />
+            <span>Type: </span>@Html.TextBoxFor(mod => mod.Type)<br />
+            <input type="submit" value="Send" />
+        }
+    </div>

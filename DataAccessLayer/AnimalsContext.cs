@@ -1,4 +1,5 @@
 ﻿using DataAccessLayer.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer
 {
-    public class AnimalsContext : DbContext
+    public class AnimalsContext : IdentityDbContext<Employee>
     {
         public AnimalsContext() : base("DefaultConnection")
         {
