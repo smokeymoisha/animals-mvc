@@ -35,8 +35,7 @@ namespace Animals_MVC.Controllers
             var employee = new Employee
             {
                 Email = model.Email,
-                UserName = model.Username,
-                Type = model.Type
+                UserName = model.Username
             };
 
             await userManager.CreateAsync(employee, model.Password);

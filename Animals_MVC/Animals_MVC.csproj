@@ -170,6 +170,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AnimalsController.cs" />
     <Compile Include="Controllers\API\AnimalsController.cs" />
+    <Compile Include="Controllers\API\HomesController.cs" />
     <Compile Include="Controllers\SPAController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

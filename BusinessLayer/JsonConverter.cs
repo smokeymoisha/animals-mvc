@@ -22,9 +22,18 @@ namespace BusinessLayer
             {
                 if (prop.IsPublic() && !Attribute.IsDefined(prop, typeof(MyIgnoreAttribute)))
                 {
-                    sb.Append($"\"{prop.Name}\": {prop}");
+                    if(prop.PropertyType == typeof(string))
+                    {
+                        sb.Append($"\"{prop.Name}\": \"{prop.GetValue(model)}\",");
+                    }
+                    else
+                    {
+                        sb.Append($"\"{prop.Name}\": {prop.GetValue(model)},");
+                    }
                 }
             }
+
+            sb.Remove(sb.Length - 1, 1);
 
             sb.Append("}");
 

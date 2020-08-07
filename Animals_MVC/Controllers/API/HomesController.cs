@@ -1,25 +1,24 @@
-﻿using System;
+﻿using Animals_MVC.Models;
+using AutoMapper;
+using BusinessLayer;
+using BusinessLayer.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Web.Http;
-using System.Web.Mvc;
-using Animals_MVC.Models;
-using AutoMapper;
-using BusinessLayer;
-using BusinessLayer.Models;
 
 namespace Animals_MVC.Controllers.API
 {
-    public class AnimalsController : ApiController
+    public class HomesController : ApiController
     {
         private readonly Mapper _mapper;
         private readonly AnimalsManager _animalsManager;
         private readonly JsonConverter _jsonConverter;
 
-        public AnimalsController()
+        public HomesController()
         {
             _animalsManager = new AnimalsManager();
             _jsonConverter = new JsonConverter();
@@ -35,19 +34,19 @@ namespace Animals_MVC.Controllers.API
             _mapper = new Mapper(config);
         }
 
-        // GET: api/Test
+        // GET: api/Homes
         public string Get()
         {
-            var catList = _animalsManager.GetAllCats();
+            var homeList = _animalsManager.GetAllHomes();
 
-            var result = _mapper.Map<IEnumerable<CatViewModel>>(catList);
+            var result = _mapper.Map<IEnumerable<HomeViewModel>>(homeList);
 
             var sb = new StringBuilder();
             sb.Append("[");
 
-            foreach (var cat in result)
+            foreach (var home in result)
             {
-                var json = _jsonConverter.Convert(cat);
+                var json = _jsonConverter.Convert(home);
 
                 sb.Append(json);
                 sb.Append(',');
@@ -59,23 +58,23 @@ namespace Animals_MVC.Controllers.API
             return sb.ToString();
         }
 
-        // GET: api/Test/5
+        // GET: api/Homes/5
         public string Get(int id)
         {
             return "value";
         }
 
-        // POST: api/Test
+        // POST: api/Homes
         public void Post([FromBody]string value)
         {
         }
 
-        // PUT: api/Test/5
+        // PUT: api/Homes/5
         public void Put(int id, [FromBody]string value)
         {
         }
 
-        // DELETE: api/Test/5
+        // DELETE: api/Homes/5
         public void Delete(int id)
         {
         }
