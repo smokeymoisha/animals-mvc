@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Reflection;
 using Newtonsoft.Json;
 using AutoMapper.Internal;
+using System.Collections;
 
 namespace BusinessLayer
 {
@@ -15,29 +16,52 @@ namespace BusinessLayer
         {
             var type = model.GetType();
 
-            var sb = new StringBuilder();
-            sb.Append("{");
-
-            foreach (var prop in type.GetProperties())
+            if (typeof(IEnumerable).IsAssignableFrom(type))
             {
-                if (prop.IsPublic() && !Attribute.IsDefined(prop, typeof(MyIgnoreAttribute)))
+                var enumerable = (IEnumerable)model;
+
+                var sb = new StringBuilder();
+                sb.Append("[");
+
+                foreach (var member in enumerable)
                 {
-                    if(prop.PropertyType == typeof(string))
+                    var json = Convert(member);
+
+                    sb.Append(json);
+                    sb.Append(',');
+                }
+
+                sb.Remove(sb.Length - 1, 1);
+                sb.Append("]");
+
+                return sb.ToString();
+            }
+            else
+            {
+                var sb = new StringBuilder();
+                sb.Append("{");
+
+                foreach (var prop in type.GetProperties())
+                {
+                    if (prop.IsPublic() && !Attribute.IsDefined(prop, typeof(MyIgnoreAttribute)))
                     {
-                        sb.Append($"\"{prop.Name}\": \"{prop.GetValue(model)}\",");
-                    }
-                    else
-                    {
-                        sb.Append($"\"{prop.Name}\": {prop.GetValue(model)},");
+                        if (prop.PropertyType == typeof(string))
+                        {
+                            sb.Append($"\"{prop.Name}\": \"{prop.GetValue(model)}\",");
+                        }
+                        else
+                        {
+                            sb.Append($"\"{prop.Name}\": {prop.GetValue(model)},");
+                        }
                     }
                 }
+
+                sb.Remove(sb.Length - 1, 1);
+
+                sb.Append("}");
+
+                return sb.ToString();
             }
-
-            sb.Remove(sb.Length - 1, 1);
-
-            sb.Append("}");
-
-            return sb.ToString();
         }
     }
 

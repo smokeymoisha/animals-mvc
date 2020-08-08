@@ -41,21 +41,7 @@ namespace Animals_MVC.Controllers.API
 
             var result = _mapper.Map<IEnumerable<HomeViewModel>>(homeList);
 
-            var sb = new StringBuilder();
-            sb.Append("[");
-
-            foreach (var home in result)
-            {
-                var json = _jsonConverter.Convert(home);
-
-                sb.Append(json);
-                sb.Append(',');
-            }
-
-            sb.Remove(sb.Length - 1, 1);
-            sb.Append("]");
-
-            return sb.ToString();
+            return _jsonConverter.Convert(result);
         }
 
         // GET: api/Homes/5
