@@ -1,4 +1,5 @@
-﻿using BusinessLayer.Managers;
+﻿using Animals_MVC.Autofac;
+using BusinessLayer.Managers;
 using DataAccessLayer;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin;
@@ -24,6 +25,7 @@ namespace Animals_MVC
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            AutofacConfig.ConfigureContainer();
         }
     }
 
