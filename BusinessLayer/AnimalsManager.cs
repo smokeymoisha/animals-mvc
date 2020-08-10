@@ -10,24 +10,15 @@ using DataAccessLayer.Models;
 
 namespace BusinessLayer
 {
-    public class AnimalsManager
+    public class AnimalsManager : IAnimalsManager
     {
-        private readonly AnimalsRepository _animalsRepository;
-        private readonly Mapper _mapper;
+        private readonly IAnimalsRepository _animalsRepository;
+        private readonly IMapper _mapper;
 
-        public AnimalsManager()
+        public AnimalsManager(IAnimalsRepository animalsRepository, IMapper mapper)
         {
-            _animalsRepository = new AnimalsRepository();
-
-            var config = new MapperConfiguration(cfg =>
-            {
-                cfg.CreateMap<Cat, CatModel>();
-                cfg.CreateMap<Home, HomeModel>();
-                cfg.CreateMap<CatModel, Cat>();
-                cfg.CreateMap<HomeModel, Home>();
-            });
-
-            _mapper = new Mapper(config);
+            _animalsRepository = animalsRepository;
+            _mapper = mapper;
         }
 
         public IList<CatModel> GetAllCats()
@@ -47,5 +38,11 @@ namespace BusinessLayer
 
             return result;
         }
+    }
+
+    public interface IAnimalsManager
+    {
+        IList<CatModel> GetAllCats();
+        IList<HomeModel> GetAllHomes();
     }
 }

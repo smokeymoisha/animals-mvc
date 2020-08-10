@@ -15,24 +15,16 @@ namespace Animals_MVC.Controllers.API
 {
     public class AnimalsController : ApiController
     {
-        private readonly Mapper _mapper;
-        private readonly AnimalsManager _animalsManager;
-        private readonly JsonConverter _jsonConverter;
+        private readonly IMapper _mapper;
+        private readonly IAnimalsManager _animalsManager;
+        private readonly IJsonConverter _jsonConverter;
 
-        public AnimalsController()
+        public AnimalsController(IAnimalsManager animalsManager, IJsonConverter jsonConverter,
+            IMapper mapper)
         {
-            _animalsManager = new AnimalsManager();
-            _jsonConverter = new JsonConverter();
-
-            var config = new MapperConfiguration(cfg =>
-            {
-                cfg.CreateMap<CatModel, CatViewModel>();
-                cfg.CreateMap<HomeModel, HomeViewModel>();
-                cfg.CreateMap<CatViewModel, CatModel>();
-                cfg.CreateMap<HomeViewModel, HomeModel>();
-            });
-
-            _mapper = new Mapper(config);
+            _animalsManager = animalsManager;
+            _jsonConverter = jsonConverter;
+            _mapper = mapper;
         }
 
         // GET: api/Test

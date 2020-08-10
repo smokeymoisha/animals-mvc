@@ -8,7 +8,7 @@ using DataAccessLayer.Models;
 
 namespace DataAccessLayer
 {
-    public class AnimalsRepository
+    public class AnimalsRepository : IAnimalsRepository
     {
         public IList<Cat> GetAllCats()
         {
@@ -25,5 +25,11 @@ namespace DataAccessLayer
                 return ctx.Homes.Include(home => home.Cats).ToList();
             }
         }
+    }
+
+    public interface IAnimalsRepository
+    {
+        IList<Cat> GetAllCats();
+        IList<Home> GetAllHomes();
     }
 }

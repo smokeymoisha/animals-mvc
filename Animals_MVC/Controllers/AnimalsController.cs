@@ -16,22 +16,13 @@ namespace Animals_MVC.Controllers
 {
     public class AnimalsController : Controller
     {
-        private readonly Mapper _mapper;
-        private readonly AnimalsManager _animalsManager;
+        private readonly IMapper _mapper;
+        private readonly IAnimalsManager _animalsManager;
 
-        public AnimalsController()
+        public AnimalsController(IAnimalsManager animalsManager, IMapper mapper)
         {
-            _animalsManager = new AnimalsManager();
-
-            var config = new MapperConfiguration(cfg =>
-            {
-                cfg.CreateMap<CatViewModel, CatModel>();
-                cfg.CreateMap<HomeViewModel, HomeModel>();
-                cfg.CreateMap<CatModel, CatViewModel>();
-                cfg.CreateMap<HomeModel, HomeViewModel>();
-            });
-
-            _mapper = new Mapper(config);
+            _animalsManager = animalsManager;
+            _mapper = mapper;
         }
 
         public async Task<ActionResult> Cats()
