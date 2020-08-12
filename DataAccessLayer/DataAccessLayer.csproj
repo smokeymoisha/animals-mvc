@@ -63,6 +63,10 @@
     <Compile Include="Migrations\202007301732180_Add_Employee_Models.designer.cs">
       <DependentUpon>202007301732180_Add_Employee_Models.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202008111547301_AddEmployeeLanguage.cs" />
+    <Compile Include="Migrations\202008111547301_AddEmployeeLanguage.designer.cs">
+      <DependentUpon>202008111547301_AddEmployeeLanguage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Cat.cs" />
     <Compile Include="Models\DefaultRole.cs" />
@@ -85,6 +89,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202007301732180_Add_Employee_Models.resx">
       <DependentUpon>202007301732180_Add_Employee_Models.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202008111547301_AddEmployeeLanguage.resx">
+      <DependentUpon>202008111547301_AddEmployeeLanguage.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

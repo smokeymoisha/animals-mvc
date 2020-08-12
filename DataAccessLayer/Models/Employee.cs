@@ -12,5 +12,6 @@ namespace DataAccessLayer.Models
         public DateTime BirthdayDate { get; set; }
         public string City { get; set; }
         public string LastName { get; set; }
+        public string Language { get; set; }
     }
 }

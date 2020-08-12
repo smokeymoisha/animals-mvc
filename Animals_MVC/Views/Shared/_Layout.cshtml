@@ -26,6 +26,11 @@
                     <li>
                         <button id="dark-mode" style="padding:15px">Dark Mode</button>
                     </li>
+                    <li>
+                        <span style="padding:15px;color:aliceblue">
+                            @(((System.Security.Claims.ClaimsIdentity)HttpContext.Current.User.Identity).Claims.First(c => c.Type == "Language"))
+                        </span>
+                    </li>
                 </ul>
             </div>
         </div>

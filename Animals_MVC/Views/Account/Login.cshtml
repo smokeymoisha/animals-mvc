@@ -1,7 +1,16 @@
-﻿
+﻿@model Animals_MVC.Models.LoginPostModel
+
 @{
     ViewBag.Title = "Login";
 }
 
 <h2>Login</h2>
 
+<div>
+    @using (Html.BeginForm("Login", "Account", FormMethod.Post))
+    {
+        <span>Username: </span>@Html.TextBoxFor(mod => mod.Username)<br />
+        <span>Password: </span>@Html.PasswordFor(mod => mod.Password)<br />
+        <input type="submit" value="Send" />
+    }
+</div>
